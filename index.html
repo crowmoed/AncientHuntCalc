@@ -3,75 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offer Melee</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        .main-heading {
-            text-align: center;
-            font-size: 48px;
-            margin: 20px 0;
-        }
-
-        hr {
-            border: 1px solid #000;
-            margin: 30px 0;
-        }
-
-        .offer-title {
-            text-align: center;
-            font-weight: bold;
-            font-size: 24px;
-            margin: 20px 0;
-        }
-
-        .inverted-points {
-            margin: 30px 0;
-        }
-
-        .inverted-points h3 {
-            margin-bottom: 15px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-
-        li {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .note {
-            text-align: center;
-            font-style: italic;
-            margin-top: 30px;
-            color: #666;
-        }
-    </style>
+    <title>Offering Interface</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="main-heading">7</h1>
-    <hr>
-    
-    <div class="offer-title">OFFER MELEE</div>
-    
-    <hr>
-    
-    <div class="inverted-points">
-        <h3>Inverted Points</h3>
-        <ul>
-            <li>RCTL</li>
-            <li>ADD OFFERING</li>
-        </ul>
-    </div>
+    <div class="container">
+        <div class="top-bar">
+            <div class="currency">
+                <div class="currency-icon"></div>
+                <span>7</span>
+            </div>
+            <div class="title">OFFER MELEE</div>
+        </div>
+        
+        <div class="offering-grid">
+            <div class="offering-slot">
+                <div class="slot-inner">+</div>
+            </div>
+            <div class="offering-slot">
+                <div class="slot-inner">+</div>
+            </div>
+            <div class="offering-slot">
+                <div class="slot-inner">+</div>
+            </div>
+            <div class="offering-slot">
+                <div class="slot-inner">+</div>
+            </div>
+        </div>
 
-    <p class="note">Offering must contain at least one item</p>
+        <div class="bottom-section">
+            <div class="invested-points">
+                <span>Invested Points</span>
+                <div class="points-display">
+                    <div class="currency-icon-small"></div>
+                    <span>0/0</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button class="control-btn">RCTL</button>
+                <div class="slider-container">
+                    <button class="arrow-btn">◀</button>
+                    <div class="slider">
+                        <div class="slider-bar"></div>
+                    </div>
+                    <button class="arrow-btn">▶</button>
+                </div>
+            </div>
+
+            <div class="add-offering-section">
+                <button class="add-offering-btn">ADD OFFERING</button>
+                <div class="error-message">Offering must contain at least one item</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
