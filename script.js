@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Slider functionality
-    let sliderValue = 30;
+    let sliderValue = 0;
     
     function updateSlider(newValue) {
         sliderValue = Math.max(0, Math.min(100, newValue));
         sliderBar.style.width = `${sliderValue}%`;
     }
 
-    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 10));
-    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 10));
+    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 100/9));
+    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 100/9));
 }); 
