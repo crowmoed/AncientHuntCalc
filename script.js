@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const MAX_POINTS = 9;
     
     // Get DOM elements
-    const pointsLeft = document.querySelector('.currency-icon');
     const slots = document.querySelectorAll('.offering-slot');
     const addOfferingBtn = document.querySelector('.add-offering-btn');
     const errorMessage = document.querySelector('.error-message');
@@ -13,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sliderBar = document.querySelector('.slider-bar');
     const leftArrow = document.querySelector('.arrow-btn:first-child');
     const rightArrow = document.querySelector('.arrow-btn:last-child');
-    
+
     // Initialize points display
     pointsDisplay.textContent = `${investedPoints}/${MAX_POINTS}`;
-    
+
     // Add click handlers to slots
     slots.forEach(slot => {
         slot.addEventListener('click', () => {
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.style.display = selectedSlots.size === 0 ? 'block' : 'none';
         });
     });
-    
+
     // Add offering button handler
     addOfferingBtn.addEventListener('click', () => {
         if (selectedSlots.size === 0) {
@@ -72,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function updateSlider(newValue) {
         sliderValue = Math.max(0, Math.min(100, newValue));
-        sliderBar.style.width = `${}%`;
+        sliderBar.style.width = `${sliderValue}%`;
     }
 
-    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 100/9));
-    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 100/9));
+    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 10));
+    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 10));
 }); 
