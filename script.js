@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize variables
     let selectedSlots = new Set();
-    let points = 0;
+    let investedPoints = 0;
+    const MAX_POINTS = 9;
     
     // Get DOM elements
     const slots = document.querySelectorAll('.offering-slot');
@@ -11,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sliderBar = document.querySelector('.slider-bar');
     const leftArrow = document.querySelector('.arrow-btn:first-child');
     const rightArrow = document.querySelector('.arrow-btn:last-child');
+
+    // Initialize points display
+    pointsDisplay.textContent = `${investedPoints}/${MAX_POINTS}`;
 
     // Add click handlers to slots
     slots.forEach(slot => {
@@ -34,6 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.style.display = 'block';
             addOfferingBtn.classList.add('shake');
             setTimeout(() => addOfferingBtn.classList.remove('shake'), 500);
+        } else if (investedPoints >= MAX_POINTS) {
+            errorMessage.textContent = 'Maximum points reached';
+            errorMessage.style.display = 'block';
+            addOfferingBtn.classList.add('shake');
+            setTimeout(() => addOfferingBtn.classList.remove('shake'), 500);
         } else {
             // Reset slots
             selectedSlots.forEach(slot => {
@@ -42,8 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedSlots.clear();
             
             // Update points
-            points++;
-            pointsDisplay.textContent = `${points}/0`;
+            investedPoints = Math.min(investedPoints + selectedSlots.size, MAX_POINTS);
+            pointsDisplay.textContent = `${investedPoints}/${MAX_POINTS}`;
+            
+            // Reset error message
+            errorMessage.textContent = 'Offering must contain at least one item';
+            errorMessage.style.display = 'none';
             
             // Show success feedback
             addOfferingBtn.style.backgroundColor = '#059669';
