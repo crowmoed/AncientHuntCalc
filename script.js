@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Slider functionality
-    let sliderValue = 0;
+    let sliderValue = 100/9;
     
     function updateSlider(newValue) {
         sliderValue = Math.max(0, Math.min(100, newValue));
