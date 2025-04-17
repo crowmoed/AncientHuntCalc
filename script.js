@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const MAX_POINTS = 9;
     
     // Get DOM elements
+    const pointsLeft = document.querySelector('.currency-icon');
     const slots = document.querySelectorAll('.offering-slot');
     const addOfferingBtn = document.querySelector('.add-offering-btn');
     const errorMessage = document.querySelector('.error-message');
