@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sliderBar = document.querySelector('.slider-bar');
     const leftArrow = document.querySelector('.arrow-btn:first-child');
     const rightArrow = document.querySelector('.arrow-btn:last-child');
-
+    
     // Initialize points display
     pointsDisplay.textContent = `${investedPoints}/${MAX_POINTS}`;
-
+    
     // Add click handlers to slots
     slots.forEach(slot => {
         slot.addEventListener('click', () => {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.style.display = selectedSlots.size === 0 ? 'block' : 'none';
         });
     });
-
+    
     // Add offering button handler
     addOfferingBtn.addEventListener('click', () => {
         if (selectedSlots.size === 0) {
@@ -74,6 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sliderBar.style.width = `${sliderValue}%`;
     }
 
-    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 100/9));
-    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 100/9));
+    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 0));
+    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 0));
 }); 
