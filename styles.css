@@ -1,7 +1,8 @@
 :root {
-    --purple-dark: #1a0f2e;
-    --purple-light: #6b21a8;
-    --purple-accent: #9333ea;
+    --purple-dark: #130822;
+    --purple-light: #2d1b4d;
+    --purple-accent: #6e30c7;
+    --purple-glow: #9333ea;
     --text-color: #faf5ff;
 }
 
@@ -19,6 +20,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle at center, #1a1025 0%, #0a0612 100%);
 }
 
 .container {
@@ -39,6 +41,11 @@ body {
     align-items: center;
     gap: 0.5rem;
     font-size: 1.5rem;
+    background: rgba(110, 48, 199, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--purple-accent);
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.3);
 }
 
 .currency-icon {
@@ -46,19 +53,26 @@ body {
     height: 24px;
     background-color: var(--purple-accent);
     border-radius: 50%;
+    box-shadow: 0 0 10px var(--purple-glow);
 }
 
 .title {
     font-size: 2rem;
     color: #ffd700;
     font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    letter-spacing: 2px;
 }
 
 .offering-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(29, 18, 43, 0.6);
+    border-radius: 12px;
+    box-shadow: inset 0 0 20px rgba(110, 48, 199, 0.3);
 }
 
 .offering-slot {
@@ -71,15 +85,37 @@ body {
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 0 15px rgba(110, 48, 199, 0.2);
+    overflow: hidden;
+}
+
+.offering-slot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(110, 48, 199, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.offering-slot:hover::before {
+    opacity: 1;
 }
 
 .offering-slot:hover {
-    background-color: var(--purple-accent);
+    border-color: var(--purple-glow);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+    transform: translateY(-2px);
 }
 
 .slot-inner {
     font-size: 2rem;
     color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .bottom-section {
@@ -92,15 +128,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    background: rgba(29, 18, 43, 0.8);
+    border-radius: 8px;
+    border: 1px solid var(--purple-accent);
+    box-shadow: 0 0 15px rgba(110, 48, 199, 0.2);
 }
 
 .points-display {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    background: rgba(110, 48, 199, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
 }
 
 .currency-icon-small {
@@ -108,21 +149,33 @@ body {
     height: 16px;
     background-color: var(--purple-accent);
     border-radius: 50%;
+    box-shadow: 0 0 8px var(--purple-glow);
 }
 
 .controls {
     display: flex;
     gap: 1rem;
     align-items: center;
+    background: rgba(29, 18, 43, 0.8);
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--purple-accent);
 }
 
 .control-btn {
     padding: 0.5rem 1rem;
     background-color: #2d2d2d;
-    border: none;
+    border: 1px solid var(--purple-accent);
     color: var(--text-color);
     border-radius: 4px;
     cursor: pointer;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: var(--purple-light);
+    box-shadow: 0 0 10px rgba(110, 48, 199, 0.4);
 }
 
 .slider-container {
@@ -138,6 +191,7 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 2px;
     position: relative;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .slider-bar {
@@ -146,8 +200,9 @@ body {
     top: 0;
     height: 100%;
     width: 30%;
-    background-color: var(--purple-accent);
+    background: linear-gradient(90deg, var(--purple-accent), var(--purple-glow));
     border-radius: 2px;
+    box-shadow: 0 0 10px var(--purple-glow);
 }
 
 .arrow-btn {
@@ -156,6 +211,13 @@ body {
     color: var(--text-color);
     cursor: pointer;
     font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+    color: var(--purple-glow);
+    text-shadow: 0 0 8px var(--purple-glow);
 }
 
 .add-offering-section {
@@ -171,15 +233,32 @@ body {
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .add-offering-btn:hover {
     background-color: #b91c1c;
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+    transform: translateY(-1px);
 }
 
 .error-message {
     margin-top: 0.5rem;
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
 } 
