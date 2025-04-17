@@ -75,6 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sliderBar.style.width = `${sliderValue}%`;
     }
 
-    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 0));
-    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 0));
+    leftArrow.addEventListener('click', () => updateSlider(sliderValue - 100/9));
+    rightArrow.addEventListener('click', () => updateSlider(sliderValue + 100/9));
 }); 
